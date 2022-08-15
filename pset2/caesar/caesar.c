@@ -4,21 +4,17 @@
 #include <ctype.h>
 #include <string.h>
 
+bool only_digits(char *arg);
+char rotate(char c, int key);
+
 int main(int argc, string argv[])
 {
-    if (argc != 2) // Ensures there are two arguments, the invocation of the file and the key
+    if (argc != 2 || !only_digits(argv[1])) // Ensures there are two arguments, the invocation of the file and the key
     {
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    for (int i = 0; i < strlen(argv[1]); i++)
-    {
-        if (!isdigit(argv[1][i])) // Ensures the key is only numerical
-        {
-            printf("Usage: ./caesar key\n");
-            return 1;
-        }
-    }
+
     int key = atoi(argv[1]); // Converts the key from a string to an int
     char *plaintext = get_string("plaintext: "); // Takes the string to be encrypted from the user
     char cyphertext[strlen(plaintext)];
@@ -26,20 +22,7 @@ int main(int argc, string argv[])
     // Encrypts the string
     for (int i = 0; i < strlen(plaintext); i++)
     {
-        if (plaintext[i] >= 'A' && plaintext[i] <= 'Z')
-        {
-            char character = ((char)((int)plaintext[i] + key - (int)'A') % 26 + 'A');
-            cyphertext[i] = character;
-        }
-        else if (plaintext[i] >= 'a' && plaintext[i] <= 'z')
-        {
-            char character = ((char)((int)plaintext[i] + key - (int)'a') % 26 + 'a');
-            cyphertext[i] = character;
-        }
-        else
-        {
-            cyphertext[i] = plaintext[i];
-        }
+        cyphertext[i] = rotate(plaintext[i], key);
     }
 
     // Prints encrypted string
@@ -49,4 +32,31 @@ int main(int argc, string argv[])
         printf("%c", cyphertext[i]);
     }
     printf("\n");
+}
+
+// Replaces the plaintext character with the encrypted character
+char rotate(char c, int key)
+{
+    if (c >= 'A' && c <= 'Z')
+    {
+        return ((char)((int)c + key - (int)'A') % 26 + 'A');
+    }
+    else if (c >= 'a' && c <= 'z')
+    {
+        return ((char)((int)c + key - (int)'a') % 26 + 'a');
+    }
+    return c;
+}
+
+// Ensures the key is only numerical
+bool only_digits(char *arg)
+{
+    for (int i = 0; i < strlen(arg); i++)
+    {
+        if (!isdigit(arg[i]))
+        {
+            return false;
+        }
+    }
+    return true;
 }

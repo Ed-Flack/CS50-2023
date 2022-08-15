@@ -13,6 +13,14 @@ To be clear, then, here’s how encrypting HELLO with a key of 1 yields IFMMP:
 | + key | 1 | 1 | 1 | 1 | 1 |
 | = ciphertext | I | F | M | M | P |
 
-More formally, Caesar’s algorithm (i.e., cipher) encrypts messages by “rotating” each letter by k positions. More formally, if p is some plaintext (i.e., an unencrypted message), pi is the ith character in p, and k is a secret key (i.e., a non-negative integer), then each letter, ci, in the ciphertext, c, is computed as
+More formally, Caesar’s algorithm (i.e., cipher) encrypts messages by “rotating” each letter by **k** positions. More formally, if **p** is some plaintext (i.e., an unencrypted message), **pi** is the **ith** character in **p**, and **k** is a secret key (i.e., a non-negative integer), then each letter, **ci**, in the ciphertext, **c**, is computed as
 <br>
-ci = (pi + k)%26
+<br>
+**ci = (pi + k)%26**
+<br>
+<br>
+wherein **%26** here means “remainder when dividing by 26.” This formula perhaps makes the cipher seem more complicated than it is, but it’s really just a concise way of expressing the algorithm precisely. Indeed, for the sake of discussion, think of A (or a) as **0**, B (or b) as **1**, …, H (or h) as **7**, I (or i) as **8**, …, and Z (or z) as **25**. Suppose that Caesar just wants to say ```Hi``` to someone confidentially using, this time, a key, **k**, of 3. And so his plaintext, **p**, is ```Hi```, in which case his plaintext’s first character, **p0**, is ```H``` (aka 7), and his plaintext’s second character, **p1**, is ```i``` (aka 8). His ciphertext’s first character, **c0**, is thus ```K```, and his ciphertext’s second character, **c1**, is thus ```L```. Make sense?
+<br>
+Let’s write a program called ```caesar``` that enables you to encrypt messages using Caesar’s cipher. At the time the user executes the program, they should decide, by providing a command-line argument, what the key should be in the secret message they’ll provide at runtime. We shouldn’t necessarily assume that the user’s key is going to be a number; though you may assume that, if it is a number, it will be a positive integer.
+
+Here are a few examples of how the program might work. For example, if the user inputs a key of ```1``` and a plaintext of ```HELLO```:

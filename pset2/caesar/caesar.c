@@ -9,7 +9,7 @@ char rotate(char c, int key);
 
 int main(int argc, string argv[])
 {
-    if (argc != 2 || !only_digits(argv[1])) // Ensures there are two arguments, the invocation of the file and the key
+    if (argc != 2 || !only_digits(argv[1])) // Ensures there are two arguments, the invocation of the file and the key and that the key is numerical
     {
         printf("Usage: ./caesar key\n");
         return 1;

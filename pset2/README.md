@@ -8,6 +8,8 @@ Unencrypted text is generally called plaintext. Encrypted text is generally call
 
 To be clear, then, here’s how encrypting HELLO with a key of 1 yields IFMMP:
 
-|**plaintext** | H | E | L | L | O |
-|key | --- | --- | --- | --- | --- |
-|= ciphertext | --- | --- | --- | --- | --- |
+| **plaintext** | H | E | L | L | O |
+| --- | --- | --- | --- | --- | --- |
+| key | 1 | 1 | 1 | 1 | 1 |
+| --- | --- | --- | --- | --- | --- |
+| ciphertext | I | F | M | M | P |

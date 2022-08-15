@@ -2,7 +2,6 @@
 
 Comprised of a singular C file ('mario.c') utlising the CS50 library.
 
-
 ## The Assignment:
 
 World 1-1

@@ -1,5 +1,5 @@
-cs50-pset1-mario-less
-The first 'Mario' assignment of Problem Set 1 of Harvard's CS50
+
+# The first 'Mario' assignment of Problem Set 1 of Harvard's CS50
 
 Comprised of a singular C file ('mario.c') utlising the CS50 library.
 

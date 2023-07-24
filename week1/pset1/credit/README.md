@@ -13,7 +13,7 @@ So what’s the secret formula? Well, most cards use an algorithm invented by Ha
 1. Multiply every other digit by 2, starting with the number’s second-to-last digit, and then add those products’ digits together.
 2. Add the sum to the sum of the digits that weren’t multiplied by 2.
 3. If the total’s last digit is 0 (or, put more formally, if the total modulo 10 is congruent to 0), the number is valid!
-4. 
+   
 That’s kind of confusing, so let’s try an example with David’s Visa: 4003600000000014.
 
 1. For the sake of discussion, let’s first underline every other digit, starting with the number’s second-to-last digit:</br>

@@ -1,12 +1,12 @@
-#Bulbs
-##Not-So-Broken Light Bulbs
+# Bulbs
+## Not-So-Broken Light Bulbs
 In lecture, you may have noticed what seemed like a “bug” at the front of the stage, whereby some of the bulbs always seem to be off:
 Each sequence of bulbs, though, encodes a message in binary, the language computers “speak.” Let’s write a program to make secret messages of your own, perhaps that we could even put on stage!
 
-##Implementation Details
+## Implementation Details
 To write our program, we’ll first need to think about bases.
 
-###The Basics
+### The Basics
 The simplest base is base-1, or unary; to write a number, N, in base-1, we would simply write N consecutive ```1```s. So the number ```4``` in base-1 would be written as ```1111```, and the number ```12``` as ```111111111111```. Think of it like counting on your fingers or tallying up a score with marks on a board.
 
 You might see why base-1 isn’t used much nowadays. (The numbers get rather long!) Instead, a common convention is base-10, or decimal. In base-10, each digit is multiplied by some power of 10, in order to represent larger numbers. For instance, 123 is short for 
@@ -21,7 +21,7 @@ Computers, though, use base-2, or binary. In binary, writing ```123``` would be 
 
 1 * 2<sup>4</sup> + 0 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup>, which is equal to the decimal number 21.
 
-###Encoding a Message
+### Encoding a Message
 Light bulbs can only be on or off. In other words, light bulbs represent two possible states; either the bulb is on, or the bulb is off, just as binary numbers are either 1 or 0. We’ll have to find a way to encode text as a sequence of binary numbers.
 
 Let’s write a program called ```bulbs``` that takes a message and converts it to a set of bulbs that we could show to an unsuspecting audience. We’ll do it in two steps:
@@ -61,7 +61,7 @@ Message: HI MOM
 ```
 Notice that all characters are included in the lightbulb instructions, including nonalphabetical characters like spaces (```00100000```).
 
-###Specification
+### Specification
 Design and implement a program, ```bulbs```, that converts text into instructions for the strip of bulbs on CS50’s stage as follows:
 
 Implement your program in a file called ```bulbs.c```.

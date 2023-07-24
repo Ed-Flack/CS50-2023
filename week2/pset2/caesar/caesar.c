@@ -1,59 +1,63 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include <string.h>
 
-bool only_digits(char *arg);
-char rotate(char c, int key);
+bool only_digits(string s);
 
 int main(int argc, string argv[])
 {
-    if (argc != 2 || !only_digits(argv[1])) // Ensures there are two arguments, the invocation of the file and the key and that the key is numerical
+    // Checks that there is only one argument and that it is only made up of digits
+    if (argc == 1 || argc > 2 || !only_digits(argv[1]))
     {
-        printf("Usage: ./caesar key\n");
+        printf("Usage: ./caesar key");
         return 1;
     }
 
-    int key = atoi(argv[1]); // Converts the key from a string to an int
-    char *plaintext = get_string("plaintext: "); // Takes the string to be encrypted from the user
-    char cyphertext[strlen(plaintext)];
+    // Converts string to an int
+    int key = atoi(argv[1]);
 
-    // Encrypts the string
+    // Takes plaintext to by encrypted from user
+    string plaintext = get_string("plaintext: ");
+
+    // Initialize ciphertext char array
+    char ciphertext[strlen(plaintext) + 1];
+    ciphertext[strlen(plaintext)] = '\0';
+
+    // Loops over each character in the plaintext, if it is an alphabetical value it is rotated 'x' number of times where 'x' is the key
     for (int i = 0; i < strlen(plaintext); i++)
     {
-        cyphertext[i] = rotate(plaintext[i], key);
+        if (isalpha(plaintext[i]))
+        {
+            int cipherCharPosition;
+            if (isupper(plaintext[i]))
+            {
+                cipherCharPosition = (plaintext[i] - 'A' + key) % 26;
+                ciphertext[i] = cipherCharPosition + 'A';
+            }
+            else
+            {
+                cipherCharPosition = (plaintext[i] - 'a' + key) % 26;
+                ciphertext[i] = cipherCharPosition + 'a';
+            }
+        }
+        else
+        {
+            ciphertext[i] = plaintext[i];
+        }
     }
 
-    // Prints encrypted string
-    printf("ciphertext: ");
-    for (int i = 0; i < (int)sizeof(cyphertext); i++)
-    {
-        printf("%c", cyphertext[i]);
-    }
-    printf("\n");
+    // Returns the ciphertext
+    printf("ciphertext: %s\n", ciphertext);
 }
 
-// Replaces the plaintext character with the encrypted character
-char rotate(char c, int key)
+// Helper method to check a string is only made up of digits
+bool only_digits(string s)
 {
-    if (c >= 'A' && c <= 'Z')
+    for (int i = 0; i < strlen(s); i++)
     {
-        return ((char)((int)c + key - (int)'A') % 26 + 'A');
-    }
-    else if (c >= 'a' && c <= 'z')
-    {
-        return ((char)((int)c + key - (int)'a') % 26 + 'a');
-    }
-    return c;
-}
-
-// Ensures the key is only numerical
-bool only_digits(char *arg)
-{
-    for (int i = 0; i < strlen(arg); i++)
-    {
-        if (!isdigit(arg[i]))
+        if (!isdigit(s[i]))
         {
             return false;
         }

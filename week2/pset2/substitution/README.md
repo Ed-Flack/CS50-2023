@@ -16,46 +16,42 @@ A message like `HELLO`, then, would be encrypted as `FOLLE`, replacing each of t
 Let’s write a program called `substitution` that enables you to encrypt messages using a substitution cipher. At the time the user executes the program, they should decide, by providing a command-line argument, on what the key should be in the secret message they’ll provide at runtime.
 
 Here are a few examples of how the program might work. For example, if the user inputs a key of `YTNSHKVEFXRBAUQZCLWDMIPGJO` and a plaintext of `HELLO`:
-
-    $ ./substitution YTNSHKVEFXRBAUQZCLWDMIPGJO
-    plaintext:  HELLO
-    ciphertext: EHBBQ
-    
+```
+$ ./substitution YTNSHKVEFXRBAUQZCLWDMIPGJO
+plaintext:  HELLO
+ciphertext: EHBBQ
+```
 
 Here’s how the program might work if the user provides a key of `VCHPRZGJNTLSKFBDQWAXEUYMOI` and a plaintext of `hello, world`:
-
-    $ ./substitution VCHPRZGJNTLSKFBDQWAXEUYMOI
-    plaintext:  hello, world
-    ciphertext: jrssb, ybwsp
-    
+```
+$ ./substitution VCHPRZGJNTLSKFBDQWAXEUYMOI
+plaintext:  hello, world
+ciphertext: jrssb, ybwsp
+```
 
 Notice that neither the comma nor the space were substituted by the cipher. Only substitute alphabetical characters! Notice, too, that the case of the original message has been preserved. Lowercase letters remain lowercase, and uppercase letters remain uppercase.
 
 Whether the characters in the key itself are uppercase or lowercase doesn’t matter. A key of `VCHPRZGJNTLSKFBDQWAXEUYMOI` is functionally identical to a key of `vchprzgjntlskfbdqwaxeuymoi` (as is, for that matter, `VcHpRzGjNtLsKfBdQwAxEuYmOi`).
 
 And what if a user doesn’t provide a valid key? The program should explain with an error message:
-
-    $ ./substitution ABC
-    Key must contain 26 characters.
-    
+```
+$ ./substitution ABC
+Key must contain 26 characters.
+```    
 
 Or really doesn’t cooperate, providing no command-line argument at all? The program should remind the user how to use the program:
-
-    $ ./substitution
-    Usage: ./substitution key
-    
+```
+$ ./substitution
+Usage: ./substitution key
+```    
 
 Or really, really doesn’t cooperate, providing too many command-line arguments? The program should also remind the user how to use the program:
+```
+$ ./substitution 1 2 3
+Usage: ./substitution key
+```    
 
-    $ ./substitution 1 2 3
-    Usage: ./substitution key
-    
-
-Watch a Recording
-
-[Specification](https://cs50.harvard.edu/x/2023/psets/2/substitution/#specification)
-------------------------------------------------------------------------------------
-
+## Specification
 Design and implement a program, `substitution`, that encrypts messages using a substitution cipher.
 
 *   Implement your program in a file called `substitution.c` in a directory called `substitution`.

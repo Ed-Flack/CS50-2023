@@ -3,14 +3,23 @@
 For this problem, you’ll implement a program that behaves similarly to the popular [Wordle](https://www.nytimes.com/games/wordle/index.html) daily word game.
 
 $ ./wordle 5
-This is WORDLE50
+
+<span style="background-color: yellow;">This is WORDLE50</span>
+
 You have 6 tries to guess the 5-letter word I'm thinking of
+
 Input a 5-letter word: crash
+
 Guess 1: crash
+
 Input a 5-letter word: scone
+
 Guess 2: scone
+
 Input a 5-letter word: since
+
 Guess 3: since
+
 You won!
 
 

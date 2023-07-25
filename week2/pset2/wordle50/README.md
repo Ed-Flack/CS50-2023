@@ -3,7 +3,7 @@
 For this problem, you’ll implement a program that behaves similarly to the popular [Wordle](https://www.nytimes.com/games/wordle/index.html) daily word game.
 
 $ ./wordle 5
-
+```html
 <span style="background-color: yellow;">This is WORDLE50</span>
 
 You have 6 tries to guess the 5-letter word I'm thinking of

@@ -1,12 +1,3 @@
-<style>
-    .highlight {
-        background-color: lightgray;
-    }
-</style>
-
-```python {.highlight}
-print("This code segment is highlighted")
-```
 # Wordle50
 
 For this problem, you’ll implement a program that behaves similarly to the popular [Wordle](https://www.nytimes.com/games/wordle/index.html) daily word game.

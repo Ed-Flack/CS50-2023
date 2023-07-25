@@ -2,26 +2,7 @@
 
 For this problem, you’ll implement a program that behaves similarly to the popular [Wordle](https://www.nytimes.com/games/wordle/index.html) daily word game.
 
-$ ./wordle 5
-```html
-<span style="background-color: yellow;">This is WORDLE50</span>
-
-You have 6 tries to guess the 5-letter word I'm thinking of
-
-Input a 5-letter word: crash
-
-Guess 1: crash
-
-Input a 5-letter word: scone
-
-Guess 2: scone
-
-Input a 5-letter word: since
-
-Guess 3: since
-
-You won!
-```
+![image](https://github.com/Ed-Flack/CS50-2023/assets/44028291/070d7de0-8b6f-408a-be42-1ebac12bfea0)
 
 ## Background
 
@@ -55,17 +36,7 @@ Input a 5-letter word:
 
 At which point, the user should type in a 5-letter word. Of course, the user could well be stubborn, and we should make sure they’re following the rules:
 
-```
-$ ./wordle 5
-This is WORDLE50
-You have 6 tries to guess the 5-letter word I'm thinking of
-Input a 5-letter word: wordle
-Input a 5-letter word: computer
-Input a 5-letter word: okay
-Input a 5-letter word: games
-Guess 1: games
-Input a 5-letter word:
-```
+![image](https://github.com/Ed-Flack/CS50-2023/assets/44028291/bad889d4-4857-4e4d-9c57-92822c99bd2c)
 
 Notice that we didn’t even count any of those invalid attempts as guesses. But as soon as they made a legitimate attempt, we counted it as a guess and reported on the status of the word. Looks like the user has a few clues now; they know the word contains an `a` and an `e` somewhere, but not in the exact spots they appear in the word `games`. And they know that `g`, `m`, and `s` don’t appear in the word at all, so future guesses can omit them. Perhaps they might try, say, `heart` next! ![❤️](https://twemoji.maxcdn.com/v/14.0.2/16x16/2764.png)
 
@@ -99,14 +70,6 @@ printf(GREEN"This is WORDLE50"RESET"\n");
 
 Of course, unlike our example, you probably don’t want to print a newline after each character of the word (instead, you just want one newline at the end, also resetting the font color!), lest it end up looking like the below:
 
-    
-    Input a 5-letter word: games
-    Guess 1: g
-    a
-    m
-    e
-    s
-    Input a 5-letter word:
-    
+![image](https://github.com/Ed-Flack/CS50-2023/assets/44028291/309da99d-e3c6-405f-9e23-2a19f014464a)
 
 7.  Finally, the seventh `TODO` is just a bit of tidying up before the program terminates. Whether the main `for` loop has ended normally, by the user running out of guesses, or because we broke out of it by getting the word exactly right, it’s time to report to the user on the game’s outcome. If the user did win the game, a simple `You won!` suffices to print here. Otherwise, you should print a message telling the user what the target word was, so they know the game was being honest with them (and so that you have a means to debug if you look back and realize your code was providing improper clues along the way!)

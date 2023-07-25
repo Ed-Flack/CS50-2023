@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: When sorting reversed50000.txt, it was the slowest of the three sorts. This algorithm traverses the list the maximum possible times as it 'bubbles' the highest value to the top. The worst case scenario for a bubble sort is a reversed list.
+
+sort2 uses: Merge Sort
+
+How do you know?: When sorting random50000.txt, it was fastest, which is expected from Merge Sort with a large unsorted dataset.
+
+sort3 uses: Selection Sort
+
+How do you know?: By process of elmination, Selection Sort is what is left.

@@ -80,39 +80,32 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    candidate votedCandidates[candidate_count]; // Creates a new array of candidates sorted in order of most votes
-    for (int i = 0; i < candidate_count; i++) // Iterates over array of candidates
+    // Bubble sort so candidates with highest number of votes are at the beginning of the array
+    bool unsorted;
+    do
     {
-        for (int j = 0; j <= i; j++) // Iterates over array of candidates sorted in order of most votes
+        unsorted = false;
+        for (int i = 0; i < candidate_count; i++)
         {
-            // If the current candidates has more votes than the current candidate in the sorted array, it enters the condition
-            if (candidates[i].votes > votedCandidates[j].votes)
+            if (i < candidate_count - 1 && candidates[i].votes < candidates[i + 1].votes)
             {
-                if (votedCandidates[j].name != NULL) // If current position in sorted array has a value, space need to be created
-                {
-                    // Space is created by iterating over sorted array starting at the end and shifting all values to the right
-                    for (int k = candidate_count - 1; k > j; k--)
-                    {
-                        if (votedCandidates[k - 1].name == NULL) // If the value to the left has no value, then no need to shift
-                        {
-                            continue;
-                        }
-                    }
-                }
-                votedCandidates[j] = candidates[i]; // Puts the current candidate in the current position of the sorted array
-                break;
+                candidate temp = candidates[i];
+                candidates[i] = candidates[i + 1];
+                candidates[i + 1] = temp;
+                unsorted = true;
             }
         }
     }
+    while (unsorted);
 
     // Print the winner, if there is a draw, all candidates with the highest number of votes are printed
     int maxVotes = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (votedCandidates[i].votes >= maxVotes)
+        if (candidates[i].votes >= maxVotes)
         {
-            maxVotes = votedCandidates[i].votes;
-            printf("%s\n", votedCandidates[i].name);
+            maxVotes = candidates[i].votes;
+            printf("%s\n", candidates[i].name);
         }
     }
     return;

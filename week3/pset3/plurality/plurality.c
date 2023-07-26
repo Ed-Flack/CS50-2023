@@ -85,9 +85,9 @@ void print_winner(void)
     do
     {
         unsorted = false;
-        for (int i = 0; i < candidate_count; i++)
+        for (int i = 0; i < candidate_count - 1; i++)
         {
-            if (i < candidate_count - 1 && candidates[i].votes < candidates[i + 1].votes)
+            if (candidates[i].votes < candidates[i + 1].votes)
             {
                 candidate temp = candidates[i];
                 candidates[i] = candidates[i + 1];

@@ -81,10 +81,10 @@ bool vote(string name)
 void print_winner(void)
 {
     // Bubble sort so candidates with highest number of votes are at the beginning of the array
-    bool unsorted;
+    bool sorted;
     do
     {
-        unsorted = false;
+        sorted = true;
         for (int i = 0; i < candidate_count - 1; i++)
         {
             if (candidates[i].votes < candidates[i + 1].votes)
@@ -92,11 +92,11 @@ void print_winner(void)
                 candidate temp = candidates[i];
                 candidates[i] = candidates[i + 1];
                 candidates[i + 1] = temp;
-                unsorted = true;
+                sorted = false;
             }
         }
     }
-    while (unsorted);
+    while (!sorted);
 
     // Print the winner, if there is a draw, all candidates with the highest number of votes are printed
     int maxVotes = 0;

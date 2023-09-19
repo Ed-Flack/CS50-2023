@@ -21,7 +21,7 @@ int main(void)
 
     // TODO: Calculate number of years until we reach threshold
     int years = 0;
-    for (int i = 0; startSize < endSize; i++)
+    while (startSize < endSize)
     {
         int born = startSize / 3;
         int died = startSize / 4;

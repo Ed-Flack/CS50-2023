@@ -134,7 +134,6 @@ Your program should behave per the examples below. Since simulations have random
 *   You might be wondering what actually happened at the 2018 and 2019 World Cups! For Men’s, France won, defeating Croatia in the final. Belgium defeated England for the third place position. For Women’s, the United States won, defeating the Netherlands in the final. England defeated Sweden for the third place position.
 
 ## Number of Simulations
---------------------------------------------------------------------------------------
 
 Once you’re sure your code is correct, let’s tinker with the value of `N`, the constant at the top of our file, to adjust the number of times we simulate the tournament. More tournament simulations will give us more accurate predictions (why?), at the cost of time.
 

@@ -49,14 +49,14 @@ Your program should behave per the example below.
 *   Run your program as `python mario.py` and wait for a prompt for input. Type in `8` and press enter. Your program should generate the below output. Be sure that the pyramid is aligned to the bottom-left corner of your terminal, and that there are no extra spaces at the end of each line.
 
 ```
-           #
-          ##
-         ###
-        ####
-       #####
-      ######
-     #######
-    ########
+       #
+      ##
+     ###
+    ####
+   #####
+  ######
+ #######
+########
 ```   
 
 *   Run your program as `python mario.py` and wait for a prompt for input. Type in `9` and press enter. Your program should reject this input as invalid, as by re-prompting the user to type in another number. Then, type in `2` and press enter. Your program should generate the below output. Be sure that the pyramid is aligned to the bottom-left corner of your terminal, and that there are no extra spaces at the end of each line.

@@ -23,8 +23,6 @@ Your program should behave per the example below.
 
 ## Testing
 
-While `check50` is available for this problem, you’re encouraged to first test your code on your own for each of the following.
-
 *   Run your program as `python hello.py`, and wait for a prompt for input. Type in `David` and press enter. Your program should output `hello, David`.
 *   Run your program as `python hello.py`, and wait for a prompt for input. Type in `Bernie` and press enter. Your program should output `hello, Bernie`.
 *   Run your program as `python hello.py`, and wait for a prompt for input. Type in `Carter` and press enter. Your program should output `hello, Carter`.

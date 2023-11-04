@@ -1,8 +1,8 @@
-# TODO
-height = ""
-while not height.isnumeric() or int(height) < 1 or int(height) > 8:
-    height = input("Height: ")
-height = int(height)
+import cs50 as cs50
+
+height = -1
+while height < 1 or height > 8:
+    height = cs50.get_int("Height: ")
 for i in range(height):
     for j in range(height - i - 1):
         print(" ", end="")

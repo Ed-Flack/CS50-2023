@@ -1,6 +1,7 @@
 import cs50
 import re
 
+
 def everyOtherDigitFromEndMultipliedByTwoAndProductsDigitsAddedTogether(cardNumber):
     total = 0
     for i in range(len(cardNumber) - 2, -1, -2):
@@ -12,11 +13,13 @@ def everyOtherDigitFromEndMultipliedByTwoAndProductsDigitsAddedTogether(cardNumb
             total += int(number)
     return total
 
+
 def allOtherDigitsAddedTogether(cardNumber):
     total = 0
     for i in range(len(cardNumber) - 1, -1, -2):
         total += int(cardNumber[i])
     return total
+
 
 def findCardType(cardNumber):
     firstNumber = int(cardNumber[0])
@@ -32,11 +35,14 @@ def findCardType(cardNumber):
         card = "VISA"
     return card
 
+
 def checksum(cardNumber):
-    if not re.match(r'^(?:\d{13}|\d{15}|\d{16})$', cardNumber):
+    if not re.match(r"^(?:\d{13}|\d{15}|\d{16})$", cardNumber):
         return "INVALID"
 
-    total = everyOtherDigitFromEndMultipliedByTwoAndProductsDigitsAddedTogether(cardNumber)
+    total = everyOtherDigitFromEndMultipliedByTwoAndProductsDigitsAddedTogether(
+        cardNumber
+    )
     total2 = allOtherDigitsAddedTogether(cardNumber)
     sum = total + total2
 
@@ -45,11 +51,13 @@ def checksum(cardNumber):
 
     return findCardType(cardNumber)
 
+
 def main():
     cardNumber = ""
-    while (not cardNumber.isnumeric()):
+    while not cardNumber.isnumeric():
         cardNumber = cs50.get_string("Number: ")
     print(checksum(cardNumber))
+
 
 if __name__ == "__main__":
     main()

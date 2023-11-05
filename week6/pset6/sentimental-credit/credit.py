@@ -1,4 +1,5 @@
-import cs50 as cs50
+import cs50
+import re
 
 def everyOtherDigitFromEndMultipliedByTwoAndProductsDigitsAddedTogether(cardNumber):
     total = 0
@@ -32,7 +33,7 @@ def findCardType(cardNumber):
     return card
 
 def checksum(cardNumber):
-    if len(cardNumber) < 13 or len(cardNumber) > 16 or len(cardNumber) == 14:
+    if not re.match(r'^(?:\d{13}|\d{15}|\d{16})$', cardNumber):
         return "INVALID"
 
     total = everyOtherDigitFromEndMultipliedByTwoAndProductsDigitsAddedTogether(cardNumber)

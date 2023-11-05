@@ -1,4 +1,4 @@
-import cs50 as cs50
+import cs50
 
 height = -1
 while height < 1 or height > 8:

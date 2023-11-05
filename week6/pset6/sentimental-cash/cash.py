@@ -1,4 +1,4 @@
-import cs50 as cs50
+import cs50
 
 def getCoins(change, coinValue):
     coins = 0

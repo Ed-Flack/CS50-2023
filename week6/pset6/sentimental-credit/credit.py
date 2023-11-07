@@ -24,15 +24,16 @@ def allOtherDigitsAddedTogether(cardNumber):
 def findCardType(cardNumber):
     firstNumber = int(cardNumber[0])
     secondNumber = int(cardNumber[1])
+    length = len(cardNumber)
     card = "INVALID"
     if firstNumber == 3:
         if secondNumber == 4 or secondNumber == 7:
-            card = "AMEX"
+            card = "AMEX" if length == 15 else "INVALID"
     elif firstNumber == 5:
         if secondNumber >= 1 and secondNumber <= 5:
-            card = "MASTERCARD"
+            card = "MASTERCARD" if length == 16 else "INVALID"
     elif firstNumber == 4:
-        card = "VISA"
+        card = "VISA" if length == 13 or length == 16 else "INVALID"
     return card
 
 

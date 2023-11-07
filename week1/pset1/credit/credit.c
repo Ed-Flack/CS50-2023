@@ -106,7 +106,7 @@ char *findCardType(int *cardNumber, int sizeOfCardNumber)
     }
     else if (firstNumber == 5)
     {
-        if (secondNumber == 1 || secondNumber == 2 || secondNumber == 3 || secondNumber == 4 || secondNumber == 5)
+        if (secondNumber >= 1 && secondNumber <= 5)
         {
             cardType = sizeOfCardNumber == 16 ? "MASTERCARD" : "INVALID"; // If number starts with 51, 52, 53, 54, or 55, and is 16 digits in length, it is a Mastercard
         }

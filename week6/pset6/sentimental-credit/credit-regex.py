@@ -25,7 +25,7 @@ def findCardType(cardNumber):
     card = "INVALID"
     if re.match(r"^3[47]\d{13}$", cardNumber):
         card = "AMEX"
-    if re.match(r"^3[1-5]\d{14}$", cardNumber):
+    if re.match(r"^5[1-5]\d{14}$", cardNumber):
         card = "MASTERCARD"
     if re.match(r"^4\d{12}(\d{3})?$", cardNumber):
         card = "VISA"

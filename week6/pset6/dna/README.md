@@ -52,16 +52,19 @@ In a file called `dna.py`, implement a program that identifies to whom a sequenc
 ## Usage
 
 Your program should behave per the example below:
-
+```
     $ python dna.py databases/large.csv sequences/5.txt
     Lavender
-
+```
+```
     $ python dna.py
     Usage: python dna.py data.csv sequence.txt
-
+```
+```
     $ python dna.py data.csv
     Usage: python dna.py data.csv sequence.txt
-    
+```
+ 
 ## Testing
 
 *   Run your program as `python dna.py databases/small.csv sequences/1.txt`. Your program should output `Bob`.

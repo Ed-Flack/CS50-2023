@@ -95,7 +95,7 @@ Not sure how to solve?
 ### Testing
 
 Your program should behave per the examples below. Since simulations have randomness within each, your output will likely not perfectly match the examples below.
-
+```
     $ python tournament.py 2018m.csv
     Belgium: 20.9% chance of winning
     Brazil: 20.3% chance of winning
@@ -111,8 +111,8 @@ Your program should behave per the examples below. Since simulations have random
     Sweden: 0.5% chance of winning
     Uruguay: 0.1% chance of winning
     Mexico: 0.1% chance of winning
-    
-
+``` 
+```
     $ python tournament.py 2019w.csv
     Germany: 17.1% chance of winning
     United States: 14.8% chance of winning
@@ -129,7 +129,7 @@ Your program should behave per the examples below. Since simulations have random
     Spain: 2.2% chance of winning
     China PR: 2.1% chance of winning
     Nigeria: 0.1% chance of winning
-    
+```
 
 *   You might be wondering what actually happened at the 2018 and 2019 World Cups! For Men’s, France won, defeating Croatia in the final. Belgium defeated England for the third place position. For Women’s, the United States won, defeating the Netherlands in the final. England defeated Sweden for the third place position.
 

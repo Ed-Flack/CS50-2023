@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', () => {
+                const correctAnswer1 = document.querySelector('.correct1');
+                const incorrectAnswers1 = document.querySelectorAll('.incorrect1');
+                const result1 = document.querySelector('#result1');
+                const input = document.querySelector('#input');
+                const confirm = document.querySelector('#confirm');
+                const result2 = document.querySelector('#result2');
+                const correctAnswer2 = document.querySelector('.correct2');
+                const incorrectAnswers2 = document.querySelectorAll('.incorrect2');
+                const result3 = document.querySelector('#result3');
+
+                function handleAnswer(color, innerHTML, element, result, correctAnswer, incorrectAnswers) {
+                    if (incorrectAnswers) {
+                        for (let i = 0; i < incorrectAnswers.length; i++) {
+                            incorrectAnswers[i].style.backgroundColor = 'black';
+                        }
+                    }
+                    if (correctAnswer) {
+                        correctAnswer.style.backgroundColor = 'black'
+                    }
+                    element.style.backgroundColor = color;
+                    result.innerHTML = innerHTML;
+                }
+
+                correctAnswer1.addEventListener('click', () => handleAnswer('green', 'Correct', correctAnswer1, result1, correctAnswer1, incorrectAnswers1));
+
+                for (let i = 0; i < incorrectAnswers1.length; i++)
+                {
+                    incorrectAnswers1[i].addEventListener('click', () => handleAnswer('red', 'Incorrect', incorrectAnswers1[i], result1, correctAnswer1, incorrectAnswers1));
+                }
+
+                confirm.addEventListener('click', () => {
+                    if (input.value.toLowerCase() == 'ada') {
+                        handleAnswer('green', 'Correct', input, result2, null, null);
+                    } else {
+                        handleAnswer('red', 'Incorrect', input, result2, null, null);
+                    }
+                });
+
+                correctAnswer2.addEventListener('click', () => handleAnswer('green', 'Correct', correctAnswer2, result3, correctAnswer2, incorrectAnswers2));
+
+                for (let i = 0; i < incorrectAnswers2.length; i++)
+                {
+                    incorrectAnswers2[i].addEventListener('click', () => handleAnswer('red', 'Incorrect', incorrectAnswers2[i], result3, correctAnswer2, incorrectAnswers2));
+                }
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which of these is NOT a programming language?</h3>
+                <button class="incorrect1">Java</button>
+                <button class="incorrect1">C</button>
+                <button class="correct1">HTML</button>
+                <button class="incorrect1">Ruby</button>
+                <button class="incorrect1">Python</button>
+                <button class="incorrect1">Pascal</button>
+                <p id="result1"></p>
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What programming language is named after Ada Lovelace?</h3>
+                <input id="input" />
+                <button id="confirm">Confirm</button>
+                <p id="result2"></p>
+            </div>
+            <div class="section">
+                <h2>Part 3: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Who invented C?</h3>
+                <button class="incorrect2">Linus Torvalds</button>
+                <button class="correct2">Dennis Ritchie</button>
+                <button class="incorrect2">Elon Musk</button>
+                <button class="incorrect2">John Carmack</button>
+                <button class="incorrect2">Guido van Rossum</button>
+                <p id="result3"></p>
+            </div>
+        </div>
+    </body>
+</html>

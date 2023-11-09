@@ -18,39 +18,42 @@
                 const incorrectAnswers2 = document.querySelectorAll('.incorrect2');
                 const result3 = document.querySelector('#result3');
 
-                function handleAnswer(color, innerHTML, element, result, correctAnswer, incorrectAnswers) {
-                    if (incorrectAnswers) {
-                        for (let i = 0; i < incorrectAnswers.length; i++) {
-                            incorrectAnswers[i].style.backgroundColor = 'black';
+                function handleAnswer(color, innerHTML, element, result) {
+                    if (element.className == 'correct1' || element.className == 'incorrect1') {
+                        for (let i = 0; i < incorrectAnswers1.length; i++) {
+                            incorrectAnswers1[i].style.backgroundColor = 'black';
                         }
-                    }
-                    if (correctAnswer) {
-                        correctAnswer.style.backgroundColor = 'black'
+                        correctAnswer1.style.backgroundColor = 'black';
+                    } else if (element.className == 'correct2' || element.className == 'incorrect2') {
+                        for (let i = 0; i < incorrectAnswers2.length; i++) {
+                            incorrectAnswers2[i].style.backgroundColor = 'black';
+                        }
+                        correctAnswer2.style.backgroundColor = 'black';
                     }
                     element.style.backgroundColor = color;
                     result.innerHTML = innerHTML;
                 }
 
-                correctAnswer1.addEventListener('click', () => handleAnswer('green', 'Correct', correctAnswer1, result1, correctAnswer1, incorrectAnswers1));
+                correctAnswer1.addEventListener('click', () => handleAnswer('green', 'Correct', correctAnswer1, result1));
 
                 for (let i = 0; i < incorrectAnswers1.length; i++)
                 {
-                    incorrectAnswers1[i].addEventListener('click', () => handleAnswer('red', 'Incorrect', incorrectAnswers1[i], result1, correctAnswer1, incorrectAnswers1));
+                    incorrectAnswers1[i].addEventListener('click', () => handleAnswer('red', 'Incorrect', incorrectAnswers1[i], result1));
                 }
 
                 confirm.addEventListener('click', () => {
                     if (input.value.toLowerCase() == 'ada') {
-                        handleAnswer('green', 'Correct', input, result2, null, null);
+                        handleAnswer('green', 'Correct', input, result2);
                     } else {
-                        handleAnswer('red', 'Incorrect', input, result2, null, null);
+                        handleAnswer('red', 'Incorrect', input, result2);
                     }
                 });
 
-                correctAnswer2.addEventListener('click', () => handleAnswer('green', 'Correct', correctAnswer2, result3, correctAnswer2, incorrectAnswers2));
+                correctAnswer2.addEventListener('click', () => handleAnswer('green', 'Correct', correctAnswer2, result3));
 
                 for (let i = 0; i < incorrectAnswers2.length; i++)
                 {
-                    incorrectAnswers2[i].addEventListener('click', () => handleAnswer('red', 'Incorrect', incorrectAnswers2[i], result3, correctAnswer2, incorrectAnswers2));
+                    incorrectAnswers2[i].addEventListener('click', () => handleAnswer('red', 'Incorrect', incorrectAnswers2[i], result3));
                 }
             });
 

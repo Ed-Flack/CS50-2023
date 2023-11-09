@@ -1,0 +1,63 @@
+h1 {
+    font-family: 'Copperplate';
+    font-size: 48px;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    display: block;
+}
+
+button {
+    background-color: #000000;
+    color: #fff;
+    font-family: 'Copperplate';
+}
+
+.navButton {
+    font-size: 48px;
+    margin: 10px;
+}
+
+.navigation {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.front-page-image {
+    height: 500px;
+    padding-top: 50px;
+}
+
+.image {
+    text-align: center;
+}
+
+.content {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.page-content {
+}
+
+.rubiks-cube {
+    height: 250px;
+    text-align: center;
+}
+
+.back {
+    height: 50px;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.graduation {
+    height: 250px;
+    text-align: center;
+}
+
+.boxing-gloves {
+    height: 250px;
+    text-align: center;
+}

@@ -24,7 +24,6 @@ button {
 }
 
 .front-page-image {
-    height: 500px;
     padding-top: 50px;
 }
 
@@ -32,12 +31,14 @@ button {
     text-align: center;
 }
 
+.image img {
+    width: 25%;
+    height: auto;
+}
+
 .content {
     width: 500px;
     margin: 0 auto;
-}
-
-.page-content {
 }
 
 .rubiks-cube {
@@ -75,3 +76,30 @@ button {
     color: #fff;
   }
 
+
+@media (max-width: 1000px) {
+    .navButton {
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px
+    }
+    .front-page-image {
+        padding-top: 50px;
+    }
+
+    .image {
+        text-align: center;
+    }
+
+    .image img {
+        width: 75%;
+        height: auto;
+    }
+    .back {
+        height: 50px;
+        font-size: 30px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: block;
+    }
+}

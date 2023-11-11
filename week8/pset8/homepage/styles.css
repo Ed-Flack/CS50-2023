@@ -100,8 +100,5 @@ button {
     .back {
         height: 50px;
         font-size: 30px;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        display: block;
     }
 }

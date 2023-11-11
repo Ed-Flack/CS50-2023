@@ -39,6 +39,7 @@ button {
 .content {
     width: 500px;
     margin: 0 auto;
+    font-size: 25px;
 }
 
 .rubiks-cube {
@@ -74,6 +75,7 @@ button {
 .accordion-button.collapsed {
     background-color: #000;
     color: #fff;
+    font-size: 25px;
 }
 
 

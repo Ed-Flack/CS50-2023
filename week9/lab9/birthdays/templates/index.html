@@ -55,31 +55,21 @@
                     </tbody>
                 </table>
                 <script>
-                function updateBirthday(id) {
-                    var formData = new FormData(document.getElementById(id));
+                const updateBirthday = (id) => {
+                    const formData = new FormData(document.getElementById(id));
                     console.log(formData);
                     formData.append('id', id);
-                    var xhr = new XMLHttpRequest();
+                    const xhr = new XMLHttpRequest();
                     xhr.open("PUT", "/", false);
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            console.log(xhr.responseText);
-                        }
-                    };
                     xhr.send(formData);
                     location.reload();
                 }
-                function deleteBirthday(id) {
+                const deleteBirthday = (id) => {
                     console.log('test');
-                    var formData = new FormData();
+                    const formData = new FormData();
                     formData.append('id', id);
-                    var xhr = new XMLHttpRequest();
+                    const xhr = new XMLHttpRequest();
                     xhr.open("DELETE", "/", false);
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            console.log(xhr.responseText);
-                        }
-                    };
                     xhr.send(formData);
                     location.reload();
                 }

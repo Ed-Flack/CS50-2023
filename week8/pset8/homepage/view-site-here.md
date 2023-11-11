@@ -1,2 +1,2 @@
 # View Website
-[Homepage](https://654f7c05ac022f2c6a9e8ff4--golden-cuchufli-30c6b8.netlify.app/bio.html)
+[Homepage](https://654f8f789eb8613e8ca65c51--splendorous-lamington-54efa7.netlify.app/)

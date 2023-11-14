@@ -30,7 +30,12 @@ def index():
         name = request.form.get("name")
         month = request.form.get("month")
         day = request.form.get("day")
-        db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", name, month, day)
+        db.execute(
+            "INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)",
+            name,
+            month,
+            day,
+        )
         return redirect("/")
 
     elif request.method == "PUT":
@@ -38,7 +43,13 @@ def index():
         name = request.form.get("name")
         month = request.form.get("month")
         day = request.form.get("day")
-        db.execute("UPDATE birthdays SET name = ?, month = ?, day = ? WHERE id=?", name, month, day, id)
+        db.execute(
+            "UPDATE birthdays SET name = ?, month = ?, day = ? WHERE id=?",
+            name,
+            month,
+            day,
+            id,
+        )
         return "saved"
 
     elif request.method == "DELETE":

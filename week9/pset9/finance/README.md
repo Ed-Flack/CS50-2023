@@ -255,9 +255,7 @@ It is **reasonable** to look at the staff’s HTML and CSS.
     *   [memegen.link](https://memegen.link/).
 *   You may find [Flask’s documentation](https://flask.palletsprojects.com/en/1.1.x/quickstart/) and [Jinja’s documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/) helpful!
 
-[FAQs](https://cs50.harvard.edu/x/2023/psets/9/finance/#faqs)
--------------------------------------------------------------
-
+## FAQs
 ### [ImportError: No module named ‘application’](https://cs50.harvard.edu/x/2023/psets/9/finance/#importerror-no-module-named-application)
 
 By default, `flask` looks for a file called `app.py` in your current working directory (because we’ve configured the value of `FLASK_APP`, an environment variable, to be `app.py`). If seeing this error, odds are you’ve run `flask` in the wrong directory!

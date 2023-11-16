@@ -256,10 +256,10 @@ It is **reasonable** to look at the staff’s HTML and CSS.
 *   You may find [Flask’s documentation](https://flask.palletsprojects.com/en/1.1.x/quickstart/) and [Jinja’s documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/) helpful!
 
 ## FAQs
-### [ImportError: No module named ‘application’](https://cs50.harvard.edu/x/2023/psets/9/finance/#importerror-no-module-named-application)
+### ImportError: No module named ‘application’
 
 By default, `flask` looks for a file called `app.py` in your current working directory (because we’ve configured the value of `FLASK_APP`, an environment variable, to be `app.py`). If seeing this error, odds are you’ve run `flask` in the wrong directory!
 
-### [OSError: \[Errno 98\] Address already in use](https://cs50.harvard.edu/x/2023/psets/9/finance/#oserror-errno-98-address-already-in-use)
+### OSError: \[Errno 98\] Address already in use
 
 If, upon running `flask`, you see this error, odds are you (still) have `flask` running in another tab. Be sure to kill that other process, as with ctrl-c, before starting `flask` again. If you haven’t any such other tab, execute `fuser -k 8080/tcp` to kill any processes that are (still) listening on TCP port 8080.

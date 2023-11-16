@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h2>
+        Current Stocks
+    </h2>
+    <h3>
+        Balance: {{balance}}
+        <br />
+        Total Balance: {{totalBalance}}
+    </h3>
+    {% if stocks|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total Value</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>
+                    {{stock["symbol"]}}
+                </td>
+                <td>
+                    {{stock["shares"]}}
+                </td>
+                <td>
+                    {{stock["price"]}}
+                </td>
+                <td>
+                    {{stock["totalPrice"]}}
+                </td>
+                <td>
+                    <a href="/buy?symbol={{stock['symbol']}}"><button class="btn btn-primary">Buy more</button></a>
+                    <a href="/sell?symbol={{stock['symbol']}}"><button class="btn btn-primary">Sell</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No stocks</p>
+    {% endif %}
+{% endblock %}

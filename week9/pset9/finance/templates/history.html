@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h2>
+        History
+    </h2>
+    {% if transactions|length > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Action</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>Total Price</th>
+                <th>Date/Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions|reverse %}
+            <tr>
+                <td>
+                    {{transaction["symbol"]}}
+                </td>
+                <td>
+                    {{transaction["action"]}}
+                </td>
+                <td>
+                    {{transaction["price"]}}
+                </td>
+                <td>
+                    {{transaction["shares"]}}
+                </td>
+                <td>
+                    {{transaction["total_price"]}}
+                </td>
+                <td>
+                    {{transaction["date_time"]}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No history</p>
+    {% endif %}
+{% endblock %}

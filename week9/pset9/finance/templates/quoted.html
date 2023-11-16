@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h2>
+        Quote
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>
+                    {{stock["symbol"]}}
+                </td>
+                <td>
+                    {{stock["price"]}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

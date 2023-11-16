@@ -223,8 +223,7 @@ Also test some unexpected usage, as by
 *   inputting an invalid stock symbol, and
 *   including potentially dangerous characters like `'` and `;` in SQL queries.
 
-
-## [Staff’s Solution](https://cs50.harvard.edu/x/2023/psets/9/finance/#staffs-solution)
+## Staff’s Solution
 
 You’re welcome to stylize your own app differently, but here’s what the staff’s solution looks like!
 

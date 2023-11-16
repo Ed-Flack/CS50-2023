@@ -71,7 +71,7 @@ def buy():
     if request.method == "POST":
         stockLookup = lookup(request.form.get("symbol"))
         if stockLookup == None:
-            return apology("Stock does not exist", 403)
+            return apology("Stock does not exist")
         if (
             not request.form.get("shares").isnumeric()
             or int(request.form.get("shares")) < 0
@@ -81,7 +81,7 @@ def buy():
         shares = int(request.form.get("shares"))
         price = round(stockLookup["price"] * shares, 2)
         if price > user["cash"]:
-            return apology("Not enough money in account", 403)
+            return apology("Not enough money in account")
         balance = round(user["cash"] - price, 2)
         db.execute(
             "UPDATE users SET cash = ? WHERE id = ?", balance, session["user_id"]
@@ -155,12 +155,16 @@ def changePassword():
         oldPassword = request.form.get("oldPassword")
         newPassword = request.form.get("newPassword")
         if oldPassword == "" or newPassword == "":
-            return apology("Did not enter old and/or new password", 403)
+            return apology("Did not enter old and/or new password")
         storedPassword = db.execute(
             "SELECT hash FROM users WHERE id = ?", session["user_id"]
         )[0]["hash"]
         if not check_password_hash(storedPassword, oldPassword):
-            return apology("Old password is incorrect", 403)
+            return apology("Old password is incorrect")
+        if not passwordMeetsComplexityRequirements(request.form.get("newPassword")):
+            return apology(
+                "Password must be longer than 8 characters and contain upper case, lower case, numbers, and special characters"
+            )
         db.execute(
             "UPDATE users SET hash = ? WHERE id = ?",
             generate_password_hash(newPassword),
@@ -272,13 +276,12 @@ def register():
             "SELECT * FROM users WHERE username = ?", request.form.get("username")
         )
         if len(rows) != 0:
-            return apology("Username already exists", 403)
+            return apology("Username already exists")
         if request.form.get("password") != request.form.get("confirmation"):
-            return apology("Passwords do not match", 403)
+            return apology("Passwords do not match")
         if not passwordMeetsComplexityRequirements(request.form.get("password")):
             return apology(
-                "Password must be longer than 8 characters and contain upper case, lower case, numbers, and special characters",
-                403,
+                "Password must be longer than 8 characters and contain upper case, lower case, numbers, and special characters"
             )
         db.execute(
             "INSERT INTO users (username, hash) VALUES (?, ?)",
@@ -318,7 +321,7 @@ def sell():
             return apology("Shares must be a positive integer")
 
         if int(request.form.get("shares")) > stocks[0]["shares"]:
-            return apology("You do not own that many shares", 403)
+            return apology("You do not own that many shares")
 
         shares = int(request.form.get("shares"))
         updatedShares = stocks[0]["shares"] - shares

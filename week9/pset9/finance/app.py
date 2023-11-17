@@ -170,8 +170,7 @@ def changePassword():
             generate_password_hash(newPassword),
             session["user_id"],
         )
-        flash("Password Changed!")
-        return render_template("change-password.html")
+        flash("Password changed!")
     return render_template("change-password.html")
 
 
@@ -188,13 +187,11 @@ def addFunds():
             or float(request.form.get("funds")) < 0
         ):
             return apology("Funds must be a positive integer")
-        updatedBalance = float(request.form.get("funds")) + balance
+        balance = float(request.form.get("funds")) + balance
         db.execute(
-            "UPDATE users SET cash = ? WHERE id = ?", updatedBalance, session["user_id"]
+            "UPDATE users SET cash = ? WHERE id = ?", balance, session["user_id"]
         )
-        return render_template(
-            "add-funds.html", balance=usd(updatedBalance), message="Funds Added!"
-        )
+        flash("Funds added!")
     return render_template("add-funds.html", balance=usd(balance))
 
 

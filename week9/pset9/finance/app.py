@@ -170,7 +170,8 @@ def changePassword():
             generate_password_hash(newPassword),
             session["user_id"],
         )
-        return render_template("change-password.html", message="Password Changed!")
+        flash("Password Changed!")
+        return render_template("change-password.html")
     return render_template("change-password.html")
 
 

@@ -7,7 +7,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
 import re
 
-from helpers import apology, login_required, lookup, usd
+from helpers import apology, login_required, lookup, usd, passwordMeetsComplexityRequirements, isfloat
 
 # Configure application
 app = Flask(__name__)
@@ -72,10 +72,7 @@ def buy():
         stockLookup = lookup(request.form.get("symbol"))
         if stockLookup == None:
             return apology("Stock does not exist")
-        if (
-            not request.form.get("shares").isnumeric()
-            or int(request.form.get("shares")) < 0
-        ):
+        if (not request.form.get("shares").isdigit()):
             return apology("Shares must be a positive integer")
         user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])[0]
         shares = int(request.form.get("shares"))
@@ -178,19 +175,14 @@ def changePassword():
 @login_required
 def addFunds():
     """Add funs to account"""
-    balance = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0][
-        "cash"
-    ]
+    balance = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
     if request.method == "POST":
-        if (
-            not request.form.get("funds").isnumeric()
-            or float(request.form.get("funds")) < 0
-        ):
-            return apology("Funds must be a positive integer")
-        balance = float(request.form.get("funds")) + balance
-        db.execute(
-            "UPDATE users SET cash = ? WHERE id = ?", balance, session["user_id"]
-        )
+        print(request.form.get("funds"))
+        print("ed look" + str(isfloat(request.form.get("funds"))))
+        if (not isfloat(request.form.get("funds"))):
+            return apology("Funds must be more than $1.00")
+        balance = round(float(request.form.get("funds")) + balance, 2)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, session["user_id"])
         flash("Funds added!")
     return render_template("add-funds.html", balance=usd(balance))
 
@@ -290,13 +282,6 @@ def register():
     return render_template("register.html")
 
 
-def passwordMeetsComplexityRequirements(password):
-    return re.match(
-        r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
-        password,
-    )
-
-
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
@@ -312,10 +297,7 @@ def sell():
         if len(stocks) == 0 or stocks[0]["symbol"] != request.form.get("symbol"):
             return apology("Stock not owned")
 
-        if (
-            not request.form.get("shares").isnumeric()
-            or int(request.form.get("shares")) < 0
-        ):
+        if (not request.form.get("shares").isdigit()):
             return apology("Shares must be a positive integer")
 
         if int(request.form.get("shares")) > stocks[0]["shares"]:

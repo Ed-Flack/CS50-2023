@@ -21,7 +21,6 @@ int main(void)
         binaryToBulbSequence(binary);
         printf("\n");
     }
-
 }
 
 // Converts a character to a string of binary

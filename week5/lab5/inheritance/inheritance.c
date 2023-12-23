@@ -19,7 +19,6 @@ person *create_family(int generations);
 void print_family(person *p, int generation);
 void free_family(person *p);
 char random_allele();
-char random_allele_with_params(char allele0, char allele1);
 
 int main(void)
 {
@@ -52,10 +51,25 @@ person *create_family(int generations)
         // TODO: Set parent pointers for current person
         child->parents[0] = parent0;
         child->parents[1] = parent1;
-
         // TODO: Randomly assign current person's alleles based on the alleles of their parents
-        child->alleles[0] = random_allele_with_params(parent0->alleles[0], parent0->alleles[1]);
-        child->alleles[1] = random_allele_with_params(parent1->alleles[0], parent1->alleles[1]);
+        bool parent0Allele = false;
+        bool parent1Allele = false;
+        for (int alleleCount = 0; alleleCount < 2;)
+        {
+            char allele = random_allele();
+            if (!parent0Allele && (parent0->alleles[0] == allele || parent0->alleles[1] == allele))
+            {
+                child->alleles[alleleCount] = allele;
+                parent0Allele = true;
+                alleleCount++;
+            }
+            if (!parent1Allele && (parent1->alleles[0] == allele || parent1->alleles[1] == allele))
+            {
+                child->alleles[alleleCount] = allele;
+                parent1Allele = true;
+                alleleCount++;
+            }
+        }
     }
 
     // If there are no generations left to create
@@ -64,7 +78,6 @@ person *create_family(int generations)
         // TODO: Set parent pointers to NULL
         child->parents[0] = NULL;
         child->parents[1] = NULL;
-
         // TODO: Randomly assign alleles
         child->alleles[0] = random_allele();
         child->alleles[1] = random_allele();
@@ -82,11 +95,9 @@ void free_family(person *p)
     {
         return;
     }
-
     // TODO: Free parents recursively
     free_family(p->parents[0]);
     free_family(p->parents[1]);
-
     // TODO: Free child
     free(p);
 }
@@ -144,19 +155,5 @@ char random_allele()
     else
     {
         return 'O';
-    }
-}
-
-// Randomly chooses a blood type allele with parameters.
-char random_allele_with_params(char allele0, char allele1)
-{
-    int r = rand() % 2;
-    if (r == 0)
-    {
-        return allele0;
-    }
-    else
-    {
-        return allele1;
     }
 }

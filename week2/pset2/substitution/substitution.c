@@ -1,47 +1,58 @@
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
-bool only_digits(string s);
 
 int main(int argc, string argv[])
 {
-    // Checks that there is only one argument and that it is only made up of digits
-    if (argc == 1 || argc > 2 || !only_digits(argv[1]))
+    // Ensures theres only one argument
+    if (argc == 1 || argc > 2)
     {
-        printf("Usage: ./caesar key");
+        printf("Usage: ./substitution key");
         return 1;
     }
 
-    // Converts string to an int
-    int key = atoi(argv[1]);
+    // Ensures that arguments is made up of 26 characters
+    if (strlen(argv[1]) != 26)
+    {
+        printf("Key must contain 26 characters.");
+        return 1;
+    }
 
-    // Takes plaintext to by encrypted from user
+    // Ensures each character is alphabetical and does not appear more than once
+    int key[26];
+    for (int i = 0; i < strlen(argv[1]); i++)
+    {
+        char keyChar = toupper(argv[1][i]);
+        if (!isalpha(keyChar))
+        {
+            printf("Key may only contain alphabetical characters");
+            return 1;
+        }
+        for (int j = 0; j <= i; j++)
+        {
+            if (key[j] == keyChar)
+            {
+                printf("Each letter can only appear once");
+                return 1;
+            }
+        }
+        key[i] = keyChar;
+    }
+
+    // Takes plaintext input from user
     string plaintext = get_string("plaintext: ");
 
-    // Initialize ciphertext char array
+    // Initializes array of characters for ciphertext
     char ciphertext[strlen(plaintext) + 1];
     ciphertext[strlen(plaintext)] = '\0';
 
-    // Loops over each character in the plaintext, if it is an alphabetical value it is rotated 'x' number of times where 'x' is the
-    // key
+    // Loops over each character and substitutes it
     for (int i = 0; i < strlen(plaintext); i++)
     {
-        if (isalpha(plaintext[i]))
+        if (isalpha(plaintext[i])) // Only substitutes alphabetical characters
         {
-            int cipherCharPosition;
-            if (isupper(plaintext[i]))
-            {
-                cipherCharPosition = (plaintext[i] - 'A' + key) % 26;
-                ciphertext[i] = cipherCharPosition + 'A';
-            }
-            else
-            {
-                cipherCharPosition = (plaintext[i] - 'a' + key) % 26;
-                ciphertext[i] = cipherCharPosition + 'a';
-            }
+            ciphertext[i] = islower(plaintext[i]) ? tolower(key[plaintext[i] - 'a']) : key[plaintext[i] - 'A'];
         }
         else
         {
@@ -49,19 +60,6 @@ int main(int argc, string argv[])
         }
     }
 
-    // Returns the ciphertext
+    // Prints ciphertext
     printf("ciphertext: %s\n", ciphertext);
-}
-
-// Helper method to check a string is only made up of digits
-bool only_digits(string s)
-{
-    for (int i = 0; i < strlen(s); i++)
-    {
-        if (!isdigit(s[i]))
-        {
-            return false;
-        }
-    }
-    return true;
 }

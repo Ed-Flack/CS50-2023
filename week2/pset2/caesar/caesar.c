@@ -1,6 +1,6 @@
 #include <cs50.h>
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -25,7 +25,8 @@ int main(int argc, string argv[])
     char ciphertext[strlen(plaintext) + 1];
     ciphertext[strlen(plaintext)] = '\0';
 
-    // Loops over each character in the plaintext, if it is an alphabetical value it is rotated 'x' number of times where 'x' is the key
+    // Loops over each character in the plaintext, if it is an alphabetical value it is rotated 'x' number of times where 'x' is the
+    // key
     for (int i = 0; i < strlen(plaintext); i++)
     {
         if (isalpha(plaintext[i]))

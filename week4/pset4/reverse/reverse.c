@@ -60,14 +60,19 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    if (fseek(input, blockSize, SEEK_END)) { // Setting pointer to end of file, if it returns true something messed up
+    // Setting pointer to end of file, if it returns true something messed up
+    if (fseek(input, blockSize, SEEK_END))
+    {
         return 1;
     }
 
     BYTE buffer[blockSize];
-    while(ftell(input) - blockSize > HEADER_SIZE) // We are working backwards, when we reach the header, we know we have read all the data
+    while (ftell(input) - blockSize >
+           HEADER_SIZE) // We are working backwards, when we reach the header, we know we have read all the data
     {
-        if (fseek(input, -2 * blockSize, SEEK_CUR)) { // Need to move the pointer back to places after each fread(), if it returns true something messed up
+        // Need to move the pointer back to places after each fread(), if it returns true something messed up
+        if (fseek(input, -2 * blockSize, SEEK_CUR))
+        {
             return 1;
         }
         fread(buffer, blockSize, 1, input);

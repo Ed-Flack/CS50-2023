@@ -1,6 +1,6 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 
 int BLOCK_SIZE = 512;
 typedef uint8_t BYTE;

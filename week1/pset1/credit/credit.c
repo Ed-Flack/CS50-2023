@@ -101,19 +101,26 @@ char *findCardType(int *cardNumber, int sizeOfCardNumber)
     {
         if (secondNumber == 4 || secondNumber == 7)
         {
-            cardType = sizeOfCardNumber == 15 ? "AMEX" : "INVALID"; // If number starts with 34 or 37, and is 15 digits in length, it is an American Express
+            cardType = sizeOfCardNumber == 15
+                           ? "AMEX"
+                           : "INVALID"; // If number starts with 34 or 37, and is 15 digits in length, it is an American Express
         }
     }
     else if (firstNumber == 5)
     {
         if (secondNumber >= 1 && secondNumber <= 5)
         {
-            cardType = sizeOfCardNumber == 16 ? "MASTERCARD" : "INVALID"; // If number starts with 51, 52, 53, 54, or 55, and is 16 digits in length, it is a Mastercard
+            cardType =
+                sizeOfCardNumber == 16
+                    ? "MASTERCARD"
+                    : "INVALID"; // If number starts with 51, 52, 53, 54, or 55, and is 16 digits in length, it is a Mastercard
         }
     }
     else if (firstNumber == 4)
     {
-        cardType = sizeOfCardNumber == 13 || sizeOfCardNumber == 16 ? "VISA" : "INVALID"; // If number starts with 4, and is 13 or 16 digits in length, it is a Visa
+        cardType = sizeOfCardNumber == 13 || sizeOfCardNumber == 16
+                       ? "VISA"
+                       : "INVALID"; // If number starts with 4, and is 13 or 16 digits in length, it is a Visa
     }
     return cardType; // Else it is Invalid
 }

@@ -1,0 +1,11 @@
+.request {
+    text-align: center;
+}
+
+.request button {
+    margin: 0 10px;
+    background-color: black;
+    color: white;
+    width: 75px;
+    border-radius: 5px;
+}

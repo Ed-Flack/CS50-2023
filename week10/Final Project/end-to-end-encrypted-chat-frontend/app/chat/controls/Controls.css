@@ -1,0 +1,26 @@
+.controls {
+    border-radius: 5px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background: white;
+    outline: solid black;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.controls input {
+    margin-bottom: 13px;
+}
+
+.name {
+    margin-top: 13px;
+}
+
+.controls button {
+    margin: 0 auto 13px;
+    background-color: black;
+    color: white;
+    width: 75px;
+    border-radius: 5px;
+}

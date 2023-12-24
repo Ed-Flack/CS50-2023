@@ -1,0 +1,39 @@
+{
+  "name": "end-to-end-encrypted-chat",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "next": "14.0.3",
+    "react": "^18",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18",
+    "react-scroll-to-bottom": "^4.2.0",
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-copy-to-clipboard": "^5.0.7",
+    "@types/react-dom": "^18",
+    "@types/react-scroll-to-bottom": "^4.2.4",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard-with-typescript": "^43.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.5.0",
+    "eslint-plugin-prettier": "^5.1.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  }
+}

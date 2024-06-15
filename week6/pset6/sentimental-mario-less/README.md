@@ -1,6 +1,6 @@
 # Mario
 
-![screenshot of Mario jumping up pyramid](https://cs50.harvard.edu/x/2023/psets/6/mario/less/pyramid.png)
+![screenshot of Mario jumping up pyramid](https://github.com/Ed-Flack/CS50-2023/assets/44028291/42e77e38-c1b1-4a13-914d-0f45623c2b84)
 
 Implement a program that prints out a half-pyramid of a specified height, per the below.
 

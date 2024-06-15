@@ -4,7 +4,9 @@ Comprised of a singular C file ('mario.c') utlising the CS50 library.
 
 # The Assignment:
 ## World 1-1
-Toward the beginning of World 1-1 in Nintendo’s Super Mario Brothers, Mario must hop over adjacent pyramids of blocks.
+Toward the beginning of World 1-1 in Nintendo’s Super Mario Brothers, Mario must hop over adjacent pyramids of blocks, per the below.
+
+![image](https://github.com/Ed-Flack/CS50-2023/assets/44028291/e0f1565f-6238-4915-a969-b47d584757ad)
 
 Let’s recreate those pyramids in C, albeit in text, using hashes (#) for bricks, a la the below. Each hash is a bit taller than it is wide, so the pyramids themselves will also be taller than they are wide.
 ```

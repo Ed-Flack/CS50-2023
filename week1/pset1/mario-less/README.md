@@ -5,7 +5,9 @@ Comprised of a singular C file ('mario.c') utlising the CS50 library.
 # The Assignment:
 
 ## World 1-1
-Toward the end of World 1-1 in Nintendo’s Super Mario Brothers, Mario must ascend right-aligned pyramid of blocks.
+Toward the end of World 1-1 in Nintendo’s Super Mario Brothers, Mario must ascend right-aligned pyramid of blocks, a la the below.
+
+![image](https://github.com/Ed-Flack/CS50-2023/assets/44028291/477a81fc-3136-44eb-b970-37900b28d6ab)
 
 Let’s recreate that pyramid in C, albeit in text, using hashes (#) for bricks, a la the below. Each hash is a bit taller than it is wide, so the pyramid itself will also be taller than it is wide.
 ```

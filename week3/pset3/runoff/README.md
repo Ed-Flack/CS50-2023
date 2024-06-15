@@ -33,20 +33,19 @@ You already know about plurality elections, which follow a very simple algorithm
 
 But the plurality vote does have some disadvantages. What happens, for instance, in an election with three candidates, and the ballots below are cast?
 
-![Five ballots, tie betweeen Alice and Bob](https://cs50.harvard.edu/x/2023/psets/3/fptp_ballot_1.png)
+![Five ballots, tie betweeen Alice and Bob](https://github.com/Ed-Flack/CS50-2023/assets/44028291/8fcf5f70-9851-4f07-afd4-5e4232f10006)
 
 A plurality vote would here declare a tie between Alice and Bob, since each has two votes. But is that the right outcome?
 
 There’s another kind of voting system known as a ranked-choice voting system. In a ranked-choice system, voters can vote for more than one candidate. Instead of just voting for their top choice, they can rank the candidates in order of preference. The resulting ballots might therefore look like the below.
 
-![Three ballots, with ranked preferences](https://cs50.harvard.edu/x/2023/psets/3/ranked_ballot_1.png)
-
+![Three ballots, with ranked preferences](https://github.com/Ed-Flack/CS50-2023/assets/44028291/9457bfda-cc4f-4918-bb29-1f7777f401c6)
 
 Here, each voter, in addition to specifying their first preference candidate, has also indicated their second and third choices. And now, what was previously a tied election could now have a winner. The race was originally tied between Alice and Bob, so Charlie was out of the running. But the voter who chose Charlie preferred Alice over Bob, so Alice could here be declared the winner.
 
 Ranked choice voting can also solve yet another potential drawback of plurality voting. Take a look at the following ballots.
 
-![Nine ballots, with ranked preferences](https://cs50.harvard.edu/x/2023/psets/3/ranked_ballot_3.png)
+![Nine ballots, with ranked preferences](https://github.com/Ed-Flack/CS50-2023/assets/44028291/3460b61e-255d-40af-91bb-d3f2910cb1b0)
 
 Who should win this election? In a plurality vote where each voter chooses their first preference only, Charlie wins this election with four votes compared to only three for Bob and two for Alice. But a majority of the voters (5 out of the 9) would be happier with either Alice or Bob instead of Charlie. By considering ranked preferences, a voting system may be able to choose a winner that better reflects the preferences of the voters.
 

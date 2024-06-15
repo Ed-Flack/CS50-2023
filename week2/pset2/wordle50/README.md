@@ -36,7 +36,7 @@ Input a 5-letter word:
 
 At which point, the user should type in a 5-letter word. Of course, the user could well be stubborn, and we should make sure they’re following the rules:
 
-![wordle](https://github.com/Ed-Flack/CS50-2023/assets/44028291/3e9c2ce3-0600-468a-b6e7-0d088a2b044d)
+![image](https://github.com/Ed-Flack/CS50-2023/assets/44028291/2e5ab12c-b8dd-40b2-9a53-b3ff2068c513)
 
 Notice that we didn’t even count any of those invalid attempts as guesses. But as soon as they made a legitimate attempt, we counted it as a guess and reported on the status of the word. Looks like the user has a few clues now; they know the word contains an `a` and an `e` somewhere, but not in the exact spots they appear in the word `games`. And they know that `g`, `m`, and `s` don’t appear in the word at all, so future guesses can omit them. Perhaps they might try, say, `heart` next! ![❤️](https://twemoji.maxcdn.com/v/14.0.2/16x16/2764.png)
 
